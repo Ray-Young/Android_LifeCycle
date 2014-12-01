@@ -1,6 +1,9 @@
-package com.ex2;
+package com.LifeCycle;
 
 import java.util.ArrayList;
+
+import com.ex2.R;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -21,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 	private MyAdapter myAdapter;
 	private EditText editText;
 	private String stringEditText;
-	private static final String TAG = "ActivityDemo";  
+	private static final String TAG = "ActivityDemo";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,11 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 		listView = (ListView) findViewById(R.id.list1);
 		editText = (EditText) findViewById(R.id.edittext);
+		if (savedInstanceState != null) {
+			editText.setText(savedInstanceState.getString("str1"));
+			Log.e(TAG, "Restore Successfully");
+
+		}
 		myAdapter = new MyAdapter(getApplicationContext());
 		listView.setAdapter(myAdapter);
 		Log.e(TAG, "onCreate");
