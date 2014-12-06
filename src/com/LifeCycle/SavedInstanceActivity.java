@@ -1,16 +1,14 @@
 package com.LifeCycle;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.ListView;
-import com.ex2.R;
 
+import com.ex2.R;
+//不建议使用
 public class SavedInstanceActivity extends ActionBarActivity {
 	private EditText editText;
 	private String stringEditText;
@@ -23,10 +21,8 @@ public class SavedInstanceActivity extends ActionBarActivity {
 		editText = (EditText) findViewById(R.id.SavedEditText);
 		if (savedInstanceState != null) {
 			String text = savedInstanceState.getString("str1");
-		
 			editText.setText(text);
 			Log.e(TAG, "Restore Successfully");
-
 		}	
 		
 		Log.e(TAG, "onCreate");
@@ -43,7 +39,8 @@ public class SavedInstanceActivity extends ActionBarActivity {
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		Log.d(TAG, savedInstanceState.getString("str1"));
+		String str1 = savedInstanceState.getString("str1");
+		Log.d(TAG, str1);
 		Log.e(TAG, "RestoreInstance");
 
 	}

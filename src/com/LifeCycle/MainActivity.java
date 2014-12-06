@@ -17,7 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
+//建议使用
 public class MainActivity extends ActionBarActivity {
 	private ArrayList<ResultObj> list = new ArrayList<ResultObj>();
 	private ListView listView;
@@ -32,11 +32,6 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 		listView = (ListView) findViewById(R.id.list1);
 		editText = (EditText) findViewById(R.id.edittext);
-		if (savedInstanceState != null) {
-			editText.setText(savedInstanceState.getString("str1"));
-			Log.e(TAG, "Restore Successfully");
-
-		}
 		myAdapter = new MyAdapter(getApplicationContext());
 		listView.setAdapter(myAdapter);
 		Log.e(TAG, "onCreate");
@@ -58,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		stringEditText = editText.getText().toString();
+		stringEditText = "Hello World";
 		Log.e(TAG, "onPause");
 	}
 
